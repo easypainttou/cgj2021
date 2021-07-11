@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://grass.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.49821, 8.64406 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 15.5756, 3.65793, 16.0216, -13.3797, -11.7203, -13.3797, -12.0771, 3.56873 )
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( -0.56505, -34.3611 )
+scale = Vector2( 1.02214, 1.31546 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0229416, -18.2545 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( -1.34781, -3.93973 )
+occluder = SubResource( 2 )

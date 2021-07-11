@@ -1,0 +1,47 @@
+{
+"s00":[
+    "It's too late.",
+    "I want to go home.",
+],
+"s01":[
+    "Now ??:??",
+    "Start lab experiment KAERIMICHI",
+],
+"s02":[
+    "Obviously, lost…",
+    "The yellow glowing paper is flashing.",
+    "Will it provide information?"
+],
+"s10":[
+    "Summer sky…",
+    "The road is still dark…",
+    "Dark blue…",
+    "With summer triangle…"
+],
+"s11":[
+    "Complex green labyrinth garden with yellow flower…",
+    "The lamp in the grass illuminates the dim road."
+],
+"s12":[
+    "No purpose?",
+    "I tell you a place to go.",
+    "The goal is: station"
+],
+"s20":[
+    "Can you give me a route?",
+    "There is no right way!"
+],
+"s21":[
+    "Then just walk...",
+    "In this quiet place."
+],
+"s22":[
+    "Going back on the way home~"
+],
+"e1":[
+    "This is the “END” station",
+    "Please wait…",
+    "The tram is coming soon...",
+    "Where is the tram? Maybe not at all…"
+],
+}

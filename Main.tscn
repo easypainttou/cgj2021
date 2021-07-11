@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Grid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://LightGrid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://insekt001.wav" type="AudioStream" id=5]
+[ext_resource path="res://wind1.wav" type="AudioStream" id=6]
+[ext_resource path="res://CheckPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Dialog.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1480.57, 67.9921 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 89.9774, 1212.38 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 3 )
+Grid = ExtResource( 2 )
+LightGrid = ExtResource( 4 )
+CheckPoint = ExtResource( 7 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Item" type="YSort" parent="."]
+
+[node name="Player" parent="Item" instance=ExtResource( 1 )]
+position = Vector2( 82.148, 65.091 )
+
+[node name="Camera2D" type="Camera2D" parent="Item/Player"]
+current = true
+limit_left = -12
+limit_top = -50
+limit_right = 1590
+limit_bottom = 1578
+
+[node name="Wall0" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Wall" type="CollisionShape2D" parent="Wall0"]
+position = Vector2( 1200, -80 )
+shape = SubResource( 1 )
+
+[node name="Wall1" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Wall" type="CollisionShape2D" parent="Wall1"]
+position = Vector2( 1200, 1640 )
+shape = SubResource( 1 )
+
+[node name="Wall2" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Wall" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( -80, 500 )
+shape = SubResource( 2 )
+
+[node name="Wall3" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Wall" type="CollisionShape2D" parent="Wall3"]
+position = Vector2( 1670, 600 )
+shape = SubResource( 2 )
+
+[node name="InsectSE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="WindSE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.45098, 0.47451, 0.878431, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialog" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[connection signal="body_entered" from="Wall0" to="." method="_on_Wall0_body_entered"]
+[connection signal="body_entered" from="Wall1" to="." method="_on_Wall1_body_entered"]
+[connection signal="body_entered" from="Wall2" to="." method="_on_Wall2_body_entered"]
+[connection signal="body_entered" from="Wall3" to="." method="_on_Wall3_body_entered"]

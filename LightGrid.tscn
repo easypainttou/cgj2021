@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://grass.png" type="Texture" id=1]
+[ext_resource path="res://light.png" type="Texture" id=2]
+[ext_resource path="res://spot.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.49821, 8.64406 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 15.9342, 3.75012, 15.9342, -16.2016, -12.4902, -16.065, -12.2169, 3.88678 )
+
+[node name="LightGrid" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( -0.56505, -34.3611 )
+scale = Vector2( 1.02214, 1.31546 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0229416, -18.2545 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2( -1.34781, -3.93973 )
+occluder = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -0.278809, -0.319153 )
+texture = ExtResource( 2 )
+color = Color( 0.184314, 0.14902, 0.0431373, 1 )
+energy = 1.5
+range_height = 264.8
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_color = Color( 0.101961, 0.14902, 0.254902, 0 )
+shadow_gradient_length = 5.0
+shadow_filter = 1
+shadow_filter_smooth = 10.0
+
+[node name="Sprite" type="Sprite" parent="Light2D"]
+position = Vector2( 0.524276, -56.2564 )
+scale = Vector2( 1.02326, 1.14396 )
+texture = ExtResource( 3 )
